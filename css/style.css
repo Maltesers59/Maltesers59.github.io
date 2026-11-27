@@ -91,7 +91,7 @@ svg { display: block; }
 .btn--outline:active { transform: translateY(1px); }
 
 /* ---------- Accueil ---------- */
-.hero { padding-block: clamp(4.5rem, 14vh, 8rem); border-bottom: 1px solid var(--border-soft); }
+.hero { min-height: calc(100vh - 69px); min-height: calc(100svh - 69px); display: flex; align-items: center; padding-block: 3rem; border-bottom: 1px solid var(--border-soft); }
 .hero__hello { font-size: 1.05rem; color: var(--text-dim); }
 h1 { margin-top: .4rem; font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -.03em; }
 .hero__sub { margin-top: 1.25rem; max-width: 56ch; color: var(--text-dim); font-size: 1.1rem; }
