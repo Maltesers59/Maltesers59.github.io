@@ -91,7 +91,35 @@ svg { display: block; }
 .btn--outline:active { transform: translateY(1px); }
 
 /* ---------- Accueil ---------- */
-.hero { min-height: calc(100vh - 69px); min-height: calc(100svh - 69px); display: flex; align-items: center; padding-block: 3rem; border-bottom: 1px solid var(--border-soft); }
+.hero { min-height: calc(100vh - 69px); min-height: calc(100svh - 69px); display: flex; align-items: center; padding-block: 3rem; }
+.hero { position: relative; }
+.hero__in { position: relative; z-index: 1; }
+.hero__deco {
+  position: absolute; left: 0; right: 0; top: 0; height: calc(100% + 260px); overflow: hidden; pointer-events: none;
+  -webkit-mask-image: linear-gradient(to bottom, #000 74%, transparent 100%); mask-image: linear-gradient(to bottom, #000 74%, transparent 100%);
+}
+.glow { position: absolute; border-radius: 50%; filter: blur(110px); }
+.glow--1 { width: 46vw; height: 46vw; max-width: 680px; max-height: 680px; right: -6vw; top: -10%; background: color-mix(in srgb, var(--accent) 26%, transparent); }
+.glow--2 { width: 34vw; height: 34vw; max-width: 500px; max-height: 500px; right: 24vw; top: 48%; background: color-mix(in srgb, #ec4899 18%, transparent); }
+.glow--3 { width: 28vw; height: 28vw; max-width: 420px; max-height: 420px; right: 2vw; top: 58%; background: color-mix(in srgb, #6366f1 20%, transparent); }
+@media (prefers-reduced-motion: no-preference) {
+  .glow { animation: drift 14s ease-in-out infinite alternate; }
+  .glow--2 { animation-duration: 18s; animation-delay: -6s; }
+  .glow--3 { animation-duration: 16s; animation-delay: -3s; }
+}
+.hero__city { position: absolute; left: 0; bottom: 120px; width: 100%; height: auto; aspect-ratio: 1440 / 400; -webkit-mask-image: linear-gradient(to bottom, #000 35%, transparent 100%); mask-image: linear-gradient(to bottom, #000 35%, transparent 100%); }
+.city--1 { fill: color-mix(in srgb, var(--accent) 11%, transparent); }
+.city--2 { fill: color-mix(in srgb, var(--accent) 20%, transparent); }
+.city__win { fill: color-mix(in srgb, var(--accent) 35%, transparent); }
+@media (prefers-reduced-motion: no-preference) {
+  .city__win { animation: twinkle 3.5s ease-in-out infinite alternate; }
+}
+@keyframes twinkle { 50% { opacity: .35; } }
+@keyframes drift { to { transform: translate(-4vw, 3vw) scale(1.08); } }
+@media (max-width: 680px) {
+  .glow--1 { width: 90vw; height: 90vw; right: -30vw; top: -15%; }
+  .glow--2, .glow--3 { width: 60vw; height: 60vw; }
+}
 .hero__hello { font-size: 1.05rem; color: var(--text-dim); }
 h1 { margin-top: .4rem; font-size: clamp(2.4rem, 6vw, 4rem); line-height: 1.05; letter-spacing: -.03em; }
 .hero__sub { margin-top: 1.25rem; max-width: 56ch; color: var(--text-dim); font-size: 1.1rem; }
